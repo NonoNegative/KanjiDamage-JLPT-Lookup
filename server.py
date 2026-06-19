@@ -39,7 +39,13 @@ class ProxyHandler(http.server.SimpleHTTPRequestHandler):
                 content_type = resp.headers.get('Content-Type', '')
                 if 'text/html' in content_type:
                     body_str = body.decode('utf-8', errors='ignore')
-                    hide_css = "<style>.navbar.fixed-top { display: none !important; } body, body.kanji, .container { padding-top: 0 !important; margin-top: 0 !important; }</style>"
+                    hide_css = (
+                        "<style>"
+                        ".navbar.fixed-top, body > br, .adsense, body > .container:first-of-type, .navigation-header a { display: none !important; }"
+                        "body, body.kanji { padding-top: 15px !important; margin-top: 0 !important; }"
+                        ".container { padding-top: 0 !important; margin-top: 0 !important; }"
+                        "</style>"
+                    )
                     body_str = body_str.replace("</head>", hide_css + "\n</head>")
                     body = body_str.encode('utf-8')
 
