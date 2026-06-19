@@ -1,5 +1,7 @@
 # KanjiDamage JLPT Lookup
 
+![Screenshot](https://i.postimg.cc/GmTbRT4J/kanjidamage-jlpt-lookup.png)
+
 A dictionary lookup application for Kanji combining JLPT levels, frequency, stroke count, and details from KanjiDamage.
 
 ## Data Sources
