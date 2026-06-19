@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanji Dictionary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Controls -->
+        <div class="controls-bar">
+            <div class="control-group">
+                <label for="jlptSelect">JLPT Level:</label>
+                <select id="jlptSelect">
+                    <option value="all">All</option>
+                    <option value="5">N5</option>
+                    <option value="4">N4</option>
+                    <option value="3">N3</option>
+                    <option value="2">N2</option>
+                    <option value="1">N1</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="sortSelect">Sort By:</label>
+                <select id="sortSelect">
+                    <option value="frequency">Frequency</option>
+                    <option value="strokes">Stroke Count</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="perPageSelect">Per Page:</label>
+                <select id="perPageSelect">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="25" selected>25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="themeSelect">Theme:</label>
+                <select id="themeSelect">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+
+            <div class="control-group checkbox-group">
+                <input type="checkbox" id="showMeaningCheck" checked>
+                <label for="showMeaningCheck">Show Meaning</label>
+            </div>
+
+            <div class="control-group">
+                <button id="optionsBtn" title="Toggle Options">⚙️</button>
+            </div>
+        </div>
+
+        <!-- Options Panel is shown as a modal; markup moved outside app-container -->
+
+        <!-- Kanji Grid -->
+        <div class="kanji-grid" id="kanjiGrid">
+            <!-- Kanji cards injected by JS -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button id="prevBtn" disabled>Previous</button>
+            <span id="pageInfo">Page 1</span>
+            <button id="nextBtn">Next</button>
+        </div>
+
+        <!-- IFrame Area -->
+        <div class="iframe-container" id="iframeContainer">
+            <p id="unknownMessage" class="hidden">A KanjiDamage listing is unavailable for this Kanji.</p>
+            <iframe id="kanjiFrame" src="about:blank" title="Kanji Listing"></iframe>
+        </div>
+    </div>
+
+    <!-- Modal backdrop and options panel (kept at end so it's not affected by container resizing) -->
+    <div id="optionsBackdrop" class="hidden"></div>
+    <div id="optionsPanel" class="options-panel hidden" role="dialog" aria-modal="true" aria-label="Options">
+        <label for="widthSlider">Page Width:</label>
+        <input type="range" id="widthSlider" min="400" max="2500" step="50" value="800">
+        <button id="closeOptionsBtn" aria-label="Close options">Close</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

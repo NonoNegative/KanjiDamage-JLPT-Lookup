@@ -1,0 +1,25 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache / compile files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and Editor configurations
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
